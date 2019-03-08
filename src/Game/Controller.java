@@ -29,8 +29,6 @@ public class Controller {
     private IntegerPanelItem steps;
     private DoublePanelItem distance;
     //
-    private boolean optimized;
-    //
     
     public Controller(Game game) {
         this.game = game;
@@ -51,7 +49,6 @@ public class Controller {
     public void initiate() {
         start = new Point(0, 0);
         end = new Point(columns - 1, rows - 1);
-        optimized = true;
         grid = new Grid(this);
         aStar = new AStar(this);        
     }
@@ -142,14 +139,5 @@ public class Controller {
     public DoublePanelItem getDistance() {
         return distance;
     }
-    
-    public void setOptimized(boolean optimized) {
-        this.optimized = optimized;
-    }
-
-    public boolean isOptimized() {
-        return optimized;
-    }
-    
     
 }

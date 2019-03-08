@@ -52,7 +52,7 @@ public class AStar {
         
         newUnvisitedNodes.add(start);
         
-        while(!newUnvisitedNodes.isEmpty() && !isDone(current, end)) {
+        while(!newUnvisitedNodes.isEmpty() && current != end) {
                         
             while(!newUnvisitedNodes.isEmpty() && newUnvisitedNodes.peek().isVisited()) newUnvisitedNodes.poll();
             
@@ -115,16 +115,6 @@ public class AStar {
         }
         controller.getSteps().setValue(steps); 
         controller.getDistance().setValue(Math.round(distance * 100d)/100d);
-    }
-    
-    private boolean isDone(Node current, Node end) {
-        
-        if(controller.isOptimized()) {
-            return current == end;
-        }
-        else
-            return false;
-        
     }
     
     private double calculateDistance(Node a, Node b) {
